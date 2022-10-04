@@ -1,44 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | E-commerce product page</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <title>Frontend Mentor | E-commerce product page</title>
 
-  Collections
-  Men
-  Women
-  About
-  Contact
+    <link rel="stylesheet" href="./scss/main.css" />
+    <link href="./scss/components/hamburger/hamburgers.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <button class="navbar__hamburger" type="button">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+      <h2 class="navbar__title">Sneaker</h2>
+      <div class="navbar__cart-icon"></div>
+      <div class="navbar__avatar"></div>
+      <div class="navbar__cart"></div>
+      <ul class="navbar__links">
+        <li><a href="#">Collections</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <main class="product">
+      <div class="product__pictures"></div>
+      <h4 class="product__brand">Sneaker Company</h4>
+      <h1 class="product__name">Fall Limited Edition Sneakers</h1>
+      <p class="product__description">
+        These low-profile sneakers are your perfect casual wear companion.
+        Featuring a durable rubber outer sole, they’ll withstand everything the
+        weather can offer.
+      </p>
+      <div class="product__prices prices">
+        <p class="prices__current">$125.00</p>
+        <p class="discount">50%</p>
+        <p class="prices__before">$250.00</p>
+      </div>
 
-  Sneaker Company
+      <div class="product__cart">
+        <div class="product__cart__inputs inputs-cart">
+          <button class="inputs-cart__descrease">-</button>
+          <input type="number" value="0" class="inputs-cart__value" />
+          <button class="inputs-cart__increase">+</button>
+        </div>
 
-  Fall Limited Edition Sneakers
+        <button class="product__cart__add-to">Add to cart</button>
+      </div>
+    </main>
 
-  These low-profile sneakers are your perfect casual wear companion. Featuring a 
-  durable rubber outer sole, they’ll withstand everything the weather can offer.
-
-  $125.00
-  50%
-  $250.00
-
-  0
-  Add to cart
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+    <!-- <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Tiyyo</a>.
+    </div> -->
+  </body>
 </html>
