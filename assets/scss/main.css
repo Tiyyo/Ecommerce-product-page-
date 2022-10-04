@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -47,6 +48,24 @@ input {
   border-radius: 0;
 }
 
+/* Hides the arrows in standard number input field */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;
@@ -63,9 +82,43 @@ html {
 
 body {
   font-size: 1.6rem;
+  min-height: 100vh;
 }
 
 a, a:visited {
   color: black;
   text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 8vh;
+  background-color: hsl(0deg, 0%, 100%);
+  padding: 5px 20px 0px 20px;
+}
+.navbar__logo {
+  background: url("../images/logo.svg") center/contain no-repeat;
+  height: 20px;
+  border: 1px solid black;
+  width: 35%;
+  flex-grow: 2;
+}
+.navbar__cart-icon {
+  background: url("../images/icon-cart.svg") center/contain no-repeat;
+  height: 25px;
+  width: 25px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+.navbar__avatar {
+  background: url("../images/image-avatar.png") center/cover no-repeat;
+  height: 25px;
+  width: 25px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+.navbar__links {
+  display: none;
 }/*# sourceMappingURL=main.css.map */

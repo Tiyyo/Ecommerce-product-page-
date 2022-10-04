@@ -17,3 +17,11 @@
             + 'Please make sure it is defined in `$breakpoints` map.';
     }
 }
+
+//-- icon - size
+@mixin iconNav {
+    height: $iconSize;
+    width: $iconSize;
+    border: 1px solid black;
+    border-radius: 50%;
+}

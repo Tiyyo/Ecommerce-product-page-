@@ -1,0 +1,34 @@
+.navbar  {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 8vh;
+    background-color: $white;
+    padding: 5px 20px 0px 20px;
+
+    // &__hamburger  {
+      
+    // }
+  
+    &__logo  {
+        background: url('../images/logo.svg') center/contain no-repeat;
+        height: 20px;
+        border: 1px solid black;
+        width: 35%;
+        flex-grow: 2;
+    }
+
+    &__cart-icon  {
+        background: url('../images/icon-cart.svg') center/contain no-repeat;
+        @include iconNav;
+    }
+
+    &__avatar  {
+        background: url('../images/image-avatar.png') center/cover no-repeat;
+        @include iconNav;
+    }
+
+    &__links  {
+        display: none;
+    }
+}

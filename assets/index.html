@@ -25,15 +25,15 @@
   </head>
   <body>
     <nav class="navbar">
-      <button class="navbar__hamburger" type="button">
+      <button class="navbar__hamburger hamburger" type="button">
         <span class="hamburger-box">
           <span class="hamburger-inner"></span>
         </span>
       </button>
-      <h2 class="navbar__title">Sneaker</h2>
-      <div class="navbar__cart-icon"></div>
-      <div class="navbar__avatar"></div>
+      <div class="navbar__logo"></div>
+      <button class="navbar__cart-icon"></button>
       <div class="navbar__cart"></div>
+      <div class="navbar__avatar"></div>
       <ul class="navbar__links">
         <li><a href="#">Collections</a></li>
         <li><a href="#">Men</a></li>
@@ -57,15 +57,15 @@
         <p class="prices__before">$250.00</p>
       </div>
 
-      <div class="product__cart">
+      <form class="product__cart">
         <div class="product__cart__inputs inputs-cart">
           <button class="inputs-cart__descrease">-</button>
           <input type="number" value="0" class="inputs-cart__value" />
           <button class="inputs-cart__increase">+</button>
         </div>
 
-        <button class="product__cart__add-to">Add to cart</button>
-      </div>
+        <button type="submit" class="product__cart__add-to">Add to cart</button>
+      </form>
     </main>
 
     <!-- <div class="attribution">
