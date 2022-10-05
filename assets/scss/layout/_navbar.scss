@@ -13,19 +13,21 @@
     &__logo  {
         background: url('../images/logo.svg') center/contain no-repeat;
         height: 20px;
-        border: 1px solid black;
-        width: 35%;
-        flex-grow: 2;
+        flex-grow: 1;
+        text-align: left;
     }
 
     &__cart-icon  {
         background: url('../images/icon-cart.svg') center/contain no-repeat;
         @include iconNav;
+        margin: 0 7px;
+
     }
 
     &__avatar  {
         background: url('../images/image-avatar.png') center/cover no-repeat;
         @include iconNav;
+        margin: 0 7px;
     }
 
     &__links  {

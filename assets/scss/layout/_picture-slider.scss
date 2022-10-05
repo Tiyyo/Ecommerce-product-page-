@@ -1,0 +1,57 @@
+.caroussel  {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 480px;
+    height: 30vh;
+    position: relative;
+    &__slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+
+        & > img  {
+            display: block;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &__slide[data-active] {
+        opacity: 1;
+    }
+
+    &__button  {
+        position: absolute;
+        z-index: 10;
+        height: 35px;
+        width: 35px;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 50%;
+        background-size: 50%;
+
+        &:hover  {
+            cursor: pointer;
+        }
+
+        & > img  {
+            display: block;
+            object-fit: contain;
+            object-position: center;
+            height: 70%;
+            width: 70%;
+        }
+
+        &.prev  {
+            left: 15px;
+
+        }
+
+        &.next  {
+            right: 15px;
+
+        }
+    
+    }
+}
+
