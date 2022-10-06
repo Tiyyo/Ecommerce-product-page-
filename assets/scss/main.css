@@ -175,4 +175,126 @@ a, a:visited {
 
 .product__caroussel {
   height: 200;
+}
+.product__brand {
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: hsl(26deg, 100%, 55%);
+  letter-spacing: 0.1rem;
+}
+.product__name {
+  color: hsl(220deg, 13%, 13%);
+  font-size: 2.7rem;
+  font-weight: 700;
+}
+.product__description {
+  color: hsl(219deg, 9%, 45%);
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 1.5rem;
+}
+.product__prices {
+  display: flex;
+}
+.product__cart {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.product__cart__inputs {
+  font-family: "Kumbh Sans", sans-serif;
+  background-color: hsl(223deg, 64%, 98%);
+  height: 60px;
+  width: 100%;
+  border-radius: 9px;
+}
+.product__cart__add-to {
+  font-family: "Kumbh Sans", sans-serif;
+  position: relative;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(26deg, 100%, 55%);
+  height: 60px;
+  width: 100%;
+  border-radius: 9px;
+}
+.product__cart__add-to:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-30%, -50%);
+  background: url("../images/icon-cart2.svg") center/contain no-repeat;
+  height: 17px;
+  width: 17px;
+}
+
+.side-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: hsl(0deg, 0%, 100%);
+  padding: 0 25px;
+  height: 60vh;
+}
+
+.prices {
+  display: flex;
+  justify-content: space-between;
+}
+.prices__current {
+  color: hsl(220deg, 13%, 13%);
+  font-size: 3rem;
+  font-weight: 700;
+  display: flex;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+}
+.prices__discount {
+  font-size: 1.7rem;
+  left: 50px;
+  color: hsl(26deg, 100%, 55%);
+  background-color: hsl(25deg, 100%, 94%);
+  font-weight: 700;
+  height: 30px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+.prices__before {
+  align-self: start;
+  text-decoration: line-through;
+  color: hsl(220deg, 14%, 75%);
+  font-weight: 700;
+  font-size: 1.7rem;
+}
+
+.inputs-cart {
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+}
+.inputs-cart__decrease {
+  flex-grow: 5;
+}
+.inputs-cart__value {
+  font-family: "Kumbh Sans", sans-serif;
+  color: hsl(220deg, 13%, 13%);
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: block;
+  border: 0;
+  background-color: hsl(223deg, 64%, 98%);
+  flex-grow: 5;
+  text-align: center;
+}
+.inputs-cart__increase {
+  display: inline-block;
+  flex-grow: 5;
+  align-self: auto;
+  padding-top: 5px;
 }/*# sourceMappingURL=main.css.map */
