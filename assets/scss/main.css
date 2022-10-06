@@ -176,11 +176,41 @@ a, a:visited {
   right: 15px;
 }
 .caroussel__circle-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  left: 50%;
+  bottom: 5px;
+  transform: translateX(-50%);
   height: 20px;
   width: 100px;
-  border: 1px solid black;
-  background-color: red;
-  z-index: 10000;
+  z-index: 1000;
+}
+.caroussel__circle-container .outter-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 15px;
+  width: 15px;
+  border: 2px solid rgba(0, 0, 0, 0.337);
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.099);
+}
+.caroussel__circle-container .outter-circle .inner-circle {
+  transform: scale(0);
+  transition: transform 250ms ease-in;
+  transition-delay: 350ms;
+  opacity: 0;
+}
+.caroussel__circle-container .outter-circle .inner-circle[data-active] {
+  background-color: hsla(26deg, 100%, 55%, 0.878);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  opacity: 0.9;
+  transform: scale(1);
+  transition: all 350ms ease-in;
 }
 
 .product__caroussel {
