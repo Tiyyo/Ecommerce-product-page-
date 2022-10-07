@@ -90,6 +90,10 @@ a, a:visited {
   text-decoration: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 .navbar {
   display: flex;
   align-items: center;
@@ -97,19 +101,48 @@ a, a:visited {
   height: 8vh;
   background-color: hsl(0deg, 0%, 100%);
   padding: 5px 20px 0px 20px;
+  position: relative;
+}
+.navbar__hamburger {
+  position: absolute;
 }
 .navbar__logo {
   background: url("../images/logo.svg") center/contain no-repeat;
   height: 20px;
   flex-grow: 1;
   text-align: left;
+  margin-left: 25px;
 }
 .navbar__cart-icon {
   background: url("../images/icon-cart.svg") center/contain no-repeat;
-  height: 25px;
-  width: 25px;
-  border-radius: 50%;
+  width: 18px;
+  height: 18px;
   margin: 0 7px;
+}
+.navbar__shopping-list[data-display=isactive] {
+  position: absolute;
+  z-index: 100;
+  top: 10vh;
+  right: 10px;
+  height: 27vh;
+  width: 90vw;
+  background-color: hsl(0deg, 0%, 100%);
+  border-radius: 9px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  max-width: 460px;
+}
+.navbar__shopping-list[data-display=isnotactive] {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  top: 10vh;
+  right: 10px;
+  height: 27vh;
+  width: 90vw;
+  background-color: hsl(0deg, 0%, 100%);
+  border-radius: 9px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  max-width: 460px;
 }
 .navbar__avatar {
   background: url("../images/image-avatar.png") center/cover no-repeat;
@@ -117,9 +150,73 @@ a, a:visited {
   width: 25px;
   border-radius: 50%;
   margin: 0 7px;
+  transition: 0.25s ease-out;
+  outline-style: solid;
+  outline-offset: 1px;
+  outline-color: transparent;
 }
-.navbar__links {
-  display: none;
+.navbar__avatar:hover {
+  outline-color: hsl(26deg, 100%, 55%);
+  cursor: pointer;
+}
+.navbar__links[data-nav-mobile=isnotactive] {
+  left: -65vw;
+  transition: left 0.35s ease-in-out;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 100vh;
+  width: 65vw;
+  max-width: 400px;
+  background-color: hsl(0deg, 0%, 100%);
+  z-index: 100;
+  font-size: 1.8rem;
+  font-weight: 700;
+  padding: 40px 0 0 20px;
+  row-gap: 25px;
+  margin-top: 7vh;
+}
+.navbar__links[data-nav-mobile=isactive] {
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 100vh;
+  width: 65vw;
+  max-width: 400px;
+  background-color: hsl(0deg, 0%, 100%);
+  z-index: 100;
+  font-size: 1.8rem;
+  font-weight: 700;
+  padding: 40px 0 0 20px;
+  row-gap: 25px;
+  margin-top: 7vh;
+  transition: left 0.35s ease-in-out;
+  left: 0;
+}
+
+.navbar__shopping-list__header {
+  font-weight: 700;
+  padding: 20px;
+  height: 50px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.141);
+}
+
+.navbar__shopping-list__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75%;
+}
+
+.empty {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: hsl(219deg, 9%, 45%);
 }
 
 .caroussel {
@@ -185,7 +282,7 @@ a, a:visited {
   transform: translateX(-50%);
   height: 20px;
   width: 100px;
-  z-index: 1000;
+  z-index: 50;
 }
 .caroussel__circle-container .outter-circle {
   display: flex;

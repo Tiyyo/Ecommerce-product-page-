@@ -43,7 +43,7 @@ $hamburger-types: (
   // arrowturn,
   // arrowturn-r,
   // boring,
-  collapse,
+  // collapse,
   collapse-r,
   // elastic,
   // elastic-r,
@@ -54,8 +54,8 @@ $hamburger-types: (
   // slider-r,
   // spin,
   // spin-r,
-  // spring,
-  // spring-r,
+  spring,
+  spring-r,
   // stand,
   // stand-r,
   // squeeze,
@@ -82,8 +82,8 @@ $hamburger-types: (
 // @import "types/arrowturn";
 // @import "types/arrowturn-r";
 // @import "types/boring";
-@import "types/collapse";
-@import "types/collapse-r";
+// @import "types/collapse";
+// @import "types/collapse-r";
 // @import "types/elastic";
 // @import "types/elastic-r";
 // @import "types/emphatic";
@@ -93,8 +93,8 @@ $hamburger-types: (
 // @import "types/slider-r";
 // @import "types/spin";
 // @import "types/spin-r";
-// @import "types/spring";
-// @import "types/spring-r";
+@import "types/spring";
+@import "types/spring-r";
 // @import "types/stand";
 // @import "types/stand-r";
 // @import "types/squeeze";
