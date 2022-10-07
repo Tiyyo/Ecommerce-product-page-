@@ -213,6 +213,10 @@ button {
   row-gap: 15px;
 }
 
+.navbar__shopping-list__content[data-content=empty] {
+  height: 20vh;
+}
+
 .navbar__shopping-list__content[data-content=notempty] {
   flex-direction: column;
   justify-content: flex-start;

@@ -123,25 +123,26 @@ form.children[1].addEventListener("click", (e) => {
   console.log(e);
   if (numberItemToAdd.value > 0) {
     cartContent.dataset.content = "notempty";
-    cartContent.innerHTML = products.map((product) => {
-      return `<div class="cart-item">
+    cartContent.innerHTML =
+      products.map((product) => {
+        return `<div class="cart-item">
                     <div class="item-photo">
                         <img src="${product.img}" alt="product's photo"/>
                     </div>
                     <div class="item-description">
                         <p class="nameof-product">${product.name}</p>
                         <p class="item-price">$${product.price},00 x  ${
-        numberItemToAdd.value
-      } <span class="total-price">$${
-        product.price * numberItemToAdd.value
-      },00</span>
+          numberItemToAdd.value
+        } <span class="total-price">$${
+          product.price * numberItemToAdd.value
+        },00</span>
                         <p>
                     </div>
                     <button type="submit" >
                         <img src="./assets/images/icon-delete.svg" alt="trash to delete item from cart"/>
                     </div>
                 </div>
-                <button class="checkout">Checkout</button>`;
-    });
+                `;
+      }) + '<button class="checkout">Checkout</button>';
   }
 });
