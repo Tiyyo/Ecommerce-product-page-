@@ -6,8 +6,15 @@ const displayCartBtn = document.querySelector("[data-cart]");
 const navLinksMobile = document.querySelector("[data-nav-mobile");
 const cart = document.querySelector("[data-display");
 const cartContent = document.querySelector("[data-content");
-
-console.log(cartContent.dataset.content);
+const form = document.getElementsByClassName("product__cart")[0];
+let itemCount;
+let products = [
+  {
+    name: "Fall Limited Edition Sneakers",
+    price: 125,
+    img: "./assets/images/image-product-1.jpg",
+  },
+];
 
 () => {
   displayItemCart();
@@ -80,6 +87,8 @@ function caroussel(item) {
   delete activeDot.dataset.active;
 }
 
+const displayProductInCart = () => {};
+
 // trigger caroussel
 carousselBtn.forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -105,4 +114,34 @@ cartBtn.forEach((btn) => {
     e.preventDefault();
     changeValueCart(btn);
   });
+});
+
+// console.log(form.children[1]);
+
+form.children[1].addEventListener("click", (e) => {
+  e.preventDefault();
+  console.log(e);
+  if (numberItemToAdd.value > 0) {
+    cartContent.dataset.content = "notempty";
+    cartContent.innerHTML = products.map((product) => {
+      return `<div class="cart-item">
+                    <div class="item-photo">
+                        <img src="${product.img}" alt="product's photo"/>
+                    </div>
+                    <div class="item-description">
+                        <p class="nameof-product">${product.name}</p>
+                        <p class="item-price">$${product.price},00 x  ${
+        numberItemToAdd.value
+      } <span class="total-price">$${
+        product.price * numberItemToAdd.value
+      },00</span>
+                        <p>
+                    </div>
+                    <button type="submit" >
+                        <img src="./assets/images/icon-delete.svg" alt="trash to delete item from cart"/>
+                    </div>
+                </div>
+                <button class="checkout">Checkout</button>`;
+    });
+  }
 });

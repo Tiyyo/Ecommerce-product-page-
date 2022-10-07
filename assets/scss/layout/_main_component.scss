@@ -45,6 +45,7 @@
             height: $inputCartSize;
             width: 100%;
             border-radius: 9px;
+            box-shadow: 0px 15px 30px 20px rgba(0, 0, 0, 0.105);
 
             &:before  {
                 content: "";

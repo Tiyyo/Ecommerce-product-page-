@@ -123,9 +123,9 @@ button {
   position: absolute;
   z-index: 100;
   top: 10vh;
-  right: 10px;
-  height: 27vh;
-  width: 90vw;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95vw;
   background-color: hsl(0deg, 0%, 100%);
   border-radius: 9px;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -136,9 +136,9 @@ button {
   position: absolute;
   z-index: 100;
   top: 10vh;
-  right: 10px;
-  height: 27vh;
-  width: 90vw;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95vw;
   background-color: hsl(0deg, 0%, 100%);
   border-radius: 9px;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -210,6 +210,24 @@ button {
   align-items: center;
   justify-content: center;
   height: 75%;
+  row-gap: 15px;
+}
+
+.navbar__shopping-list__content[data-content=notempty] {
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 30px 25px 0 25px;
+}
+.navbar__shopping-list__content[data-content=notempty] .checkout {
+  font-family: "Kumbh Sans", sans-serif;
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(26deg, 100%, 55%);
+  border-radius: 6px;
+  width: 100%;
+  min-height: 50px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 30px;
 }
 
 .empty {
@@ -217,6 +235,40 @@ button {
   font-weight: 700;
   font-size: 1.6rem;
   color: hsl(219deg, 9%, 45%);
+}
+
+.cart-item {
+  display: flex;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+}
+.cart-item .item-photo {
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+  border-radius: 6px;
+}
+.cart-item .item-photo > img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+.cart-item .item-description {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  color: hsl(219deg, 9%, 45%);
+  font-size: 1.6rem;
+}
+.cart-item .item-description .nameof-product {
+  max-width: 175px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.cart-item .item-description .total-price {
+  color: black;
+  font-weight: 700;
 }
 
 .caroussel {
@@ -356,6 +408,7 @@ button {
   height: 60px;
   width: 100%;
   border-radius: 9px;
+  box-shadow: 0px 15px 30px 20px rgba(0, 0, 0, 0.105);
 }
 .product__cart__add-to:before {
   content: "";

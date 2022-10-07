@@ -79,10 +79,63 @@
     align-items: center;
     justify-content: center;
     height: 75%;
+    row-gap: 15px;
+
+}
+.navbar__shopping-list__content[data-content="notempty"]  {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 30px 25px 0 25px;
+
+   .checkout {
+    font-family: 'Kumbh Sans', sans-serif;
+    color: $white;
+    background-color: $orange;
+    border-radius: 6px;
+    width: 100%;
+    min-height: 50px;
+    font-size: 1.5rem;
+    font-weight: $bold;
+    margin-bottom: 30px;
+   }
 }
 .empty {
     font-family: inherit;
     font-weight: $bold;
     font-size: 1.6rem;
     color: $dark-grayish-blue;
+}
+
+.cart-item  {
+    display: flex;
+    column-gap: 15px;
+    .item-photo  {
+        height: 50px;
+        width: 50px;
+        overflow: hidden;
+        border-radius: 6px;
+
+        & > img {
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+    .item-description  {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        color: $dark-grayish-blue;
+        font-size: 1.6rem;
+
+        .nameof-product  {
+            max-width: 175px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .total-price  {
+            color: black;
+            font-weight: $bold;
+        }
+    }
 }
