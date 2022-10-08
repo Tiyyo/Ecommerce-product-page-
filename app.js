@@ -7,7 +7,7 @@ const navLinksMobile = document.querySelector("[data-nav-mobile");
 const cart = document.querySelector("[data-display");
 const cartContent = document.querySelector("[data-content");
 const form = document.getElementsByClassName("product__cart")[0];
-let itemCount;
+let itemCount = 0;
 let products = [
   {
     name: "Fall Limited Edition Sneakers",
@@ -15,6 +15,7 @@ let products = [
     img: "./assets/images/image-product-1.jpg",
   },
 ];
+let deleteBtn;
 
 () => {
   displayItemCart();
@@ -45,9 +46,37 @@ function displayCart() {
   }
 }
 
-function displayItemCart() {
+function displayEmptyCart() {
   if (cartContent.dataset.content === "empty") {
     cartContent.innerHTML = `<p class="empty">Your cart is empty.</p>`;
+  }
+}
+
+function displayProductCart() {
+  if (numberItemToAdd.value > 0) {
+    cartContent.dataset.content = "notempty";
+    cartContent.innerHTML =
+      products.map((product) => {
+        console.log(product);
+        return `<div class="cart-item">
+                        <div class="item-photo">
+                            <img src="${product.img}" alt="product's photo"/>
+                        </div>
+                        <div class="item-description">
+                            <p class="nameof-product">${product.name}</p>
+                            <p class="item-price">$${product.price},00 x  ${
+          numberItemToAdd.value
+        } <span class="total-price">$${
+          product.price * numberItemToAdd.value
+        },00</span>
+                            <p>
+                        </div>
+                        <button class ="delete-item" type="submit" >
+                            <img src="./assets/images/icon-delete.svg" alt="trash to delete item from cart"/>
+                        </div>
+                    </div>
+                    `;
+      }) + '<button class="checkout">Checkout</button>';
   }
 }
 
@@ -105,7 +134,7 @@ hamburger.addEventListener("click", () => {
 // display cart
 displayCartBtn.addEventListener("click", () => {
   displayCart();
-  displayItemCart();
+  displayEmptyCart();
   hamburger.classList.remove("is-active");
 });
 
@@ -116,33 +145,17 @@ cartBtn.forEach((btn) => {
   });
 });
 
-// console.log(form.children[1]);
-
+// add to cart event
 form.children[1].addEventListener("click", (e) => {
   e.preventDefault();
-  console.log(e);
-  if (numberItemToAdd.value > 0) {
-    cartContent.dataset.content = "notempty";
-    cartContent.innerHTML =
-      products.map((product) => {
-        return `<div class="cart-item">
-                    <div class="item-photo">
-                        <img src="${product.img}" alt="product's photo"/>
-                    </div>
-                    <div class="item-description">
-                        <p class="nameof-product">${product.name}</p>
-                        <p class="item-price">$${product.price},00 x  ${
-          numberItemToAdd.value
-        } <span class="total-price">$${
-          product.price * numberItemToAdd.value
-        },00</span>
-                        <p>
-                    </div>
-                    <button type="submit" >
-                        <img src="./assets/images/icon-delete.svg" alt="trash to delete item from cart"/>
-                    </div>
-                </div>
-                `;
-      }) + '<button class="checkout">Checkout</button>';
-  }
+  displayProductCart();
+  let newItemCount = parseInt(itemCount) + numberItemToAdd.value;
+  deleteBtn = document.getElementsByClassName("delete-item")[0];
+  deleteBtn.addEventListener("click", (e) => {
+    console.log(e);
+    cartContent.dataset.content = "empty";
+    displayEmptyCart();
+  });
+  itemCount = parseInt(newItemCount);
 });
+// });
