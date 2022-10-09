@@ -1,12 +1,15 @@
-const carousselBtn = document.querySelectorAll("[data-caroussel_btn");
+const carousselBtn = document.querySelectorAll("[data-caroussel_btn]");
 const numberItemToAdd = document.querySelector("input[type=number]");
 const cartBtn = document.querySelectorAll("[data-input]");
 const hamburger = document.getElementsByClassName("hamburger")[0];
 const displayCartBtn = document.querySelector("[data-cart]");
-const navLinksMobile = document.querySelector("[data-nav-mobile");
-const cart = document.querySelector("[data-display");
+const navLinksMobile = document.querySelector("[data-nav-mobile]");
+const cart = document.querySelector("[data-display]");
 const cartContent = document.querySelector("[data-content");
 const form = document.getElementsByClassName("product__cart")[0];
+const main = document.querySelector("main");
+const iconCartValue = displayCartBtn.children[0];
+let stockCartValue;
 let itemCount = 0;
 let products = [
   {
@@ -17,9 +20,18 @@ let products = [
 ];
 let deleteBtn;
 
+console.log(iconCartValue.dataset);
 () => {
   displayItemCart();
 };
+
+function displayOverlay() {
+  if (navLinksMobile.dataset.navMobile === "isactive") {
+    main.classList.add("active");
+  } else {
+    main.classList.remove("active");
+  }
+}
 
 function displayNavMobile() {
   if (navLinksMobile.dataset.navMobile === "isactive") {
@@ -49,6 +61,7 @@ function displayCart() {
 function displayEmptyCart() {
   if (cartContent.dataset.content === "empty") {
     cartContent.innerHTML = `<p class="empty">Your cart is empty.</p>`;
+    stockCartValue = 0;
   }
 }
 
@@ -57,7 +70,6 @@ function displayProductCart() {
     cartContent.dataset.content = "notempty";
     cartContent.innerHTML =
       products.map((product) => {
-        console.log(product);
         return `<div class="cart-item">
                         <div class="item-photo">
                             <img src="${product.img}" alt="product's photo"/>
@@ -89,6 +101,15 @@ function changeValueCart(item) {
   }
 }
 
+function displayCartItemValue() {
+  if (stockCartValue > 0) {
+    iconCartValue.dataset.iconCart = "notempty";
+    iconCartValue.textContent = stockCartValue;
+  } else {
+    iconCartValue.dataset.iconCart = "empty";
+  }
+}
+
 function caroussel(item) {
   const offset = item.dataset.caroussel_btn === "next" ? 1 : -1;
   const slides = item
@@ -116,8 +137,6 @@ function caroussel(item) {
   delete activeDot.dataset.active;
 }
 
-const displayProductInCart = () => {};
-
 // trigger caroussel
 carousselBtn.forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -129,15 +148,18 @@ carousselBtn.forEach((btn) => {
 hamburger.addEventListener("click", () => {
   hamburger.classList.toggle("is-active");
   displayNavMobile();
+  displayOverlay();
 });
 
-// display cart
+// display cart on click
 displayCartBtn.addEventListener("click", () => {
   displayCart();
   displayEmptyCart();
+  displayOverlay();
   hamburger.classList.remove("is-active");
 });
 
+//  change value of the input number
 cartBtn.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
@@ -148,14 +170,25 @@ cartBtn.forEach((btn) => {
 // add to cart event
 form.children[1].addEventListener("click", (e) => {
   e.preventDefault();
+  stockCartValue = numberItemToAdd.value;
   displayProductCart();
-  let newItemCount = parseInt(itemCount) + numberItemToAdd.value;
+  displayCartItemValue();
+  numberItemToAdd.value = 0;
+
   deleteBtn = document.getElementsByClassName("delete-item")[0];
-  deleteBtn.addEventListener("click", (e) => {
-    console.log(e);
+  deleteBtn.addEventListener("click", () => {
     cartContent.dataset.content = "empty";
     displayEmptyCart();
+    displayCartItemValue();
   });
-  itemCount = parseInt(newItemCount);
 });
 // });
+
+// remove navmobile and cart on click
+main.addEventListener("click", () => {
+  if (navLinksMobile.dataset.navMobile === "isactive") {
+    navLinksMobile.dataset.navMobile = "isnotactive";
+    main.classList.remove("active");
+    hamburger.classList.remove("is-active");
+  }
+});

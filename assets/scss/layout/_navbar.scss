@@ -20,10 +20,32 @@
     }
 
     &__cart-icon  {
+        position: relative;
         background: url('../images/icon-cart.svg') center/contain no-repeat;
         width: 18px;
         height: 18px;
         margin: 0 7px;
+
+        &:hover {
+            fill: $orange;
+        }
+
+        & > span[data-icon-cart="notempty"]  {
+            position: absolute;
+            top: -6px;
+            height: 12px;
+            width: 16px;
+            border-radius: 6px;
+            background-color: $orange;
+            color: $white;
+            font-size: 1rem;
+        }
+
+        & > span[data-icon-cart="empty"]  {
+          display: none;
+        }
+
+        
 
     }
     &__shopping-list[data-display="isactive"]  {

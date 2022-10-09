@@ -58,6 +58,10 @@
                 width: 17px;
 
             }
+            &:hover {
+                filter: brightness(1.1);
+            }
+        
         }
     }
 }
@@ -132,4 +136,11 @@
         
 
     }
+}
+main.active {
+    filter: blur(3px) grayscale(0.5);
+    
+    transition: filter 0.150s ease-in-out;
+    z-index: 90;
+
 }
