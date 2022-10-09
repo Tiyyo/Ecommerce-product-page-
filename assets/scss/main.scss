@@ -5,6 +5,7 @@
 @import 'abstracts/placeholders';
 
 //---import vendors library 
+@import './components/hamburger/hamburgers';
 
 //---import base folder
 @import 'base/reset';
@@ -16,6 +17,7 @@
 @import './layout/navbar';
 @import './layout/picture-slider';
 @import './layout/main_component';
+@import './layout/lightbox'
 // @import 'layout/header';
 // @import 'layout/functionality_section';
 // @import 'layout/productive_section';

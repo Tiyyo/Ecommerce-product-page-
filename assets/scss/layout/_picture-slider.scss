@@ -4,6 +4,7 @@
     max-width: 480px;
     height: 30vh;
     position: relative;
+
     &__slide {
         position: absolute;
         inset: 0;
@@ -32,6 +33,7 @@
         transform: translateY(-50%);
         border-radius: 50%;
         background-size: 50%;
+        height: 100%;
 
         &:hover  {
             cursor: pointer;

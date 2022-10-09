@@ -52,6 +52,12 @@
     width: 95vw;
     background-color: $white;
     border-radius: 9px; 
-    max-width: 460px;
+    max-width: 360px;
     box-shadow: 2px 15px 20px 10px rgba(0, 0, 0, 0.2);
+
+    @include respond-to('medium') {
+        right: 10px;
+        left: auto;
+        transform: none;
+    }
 }

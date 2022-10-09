@@ -27,9 +27,52 @@
     />
   </head>
   <body>
+    <div class="lightbox">
+      <div class="lightbox__picture-container">
+        <button class="lightbox__button prev">
+          <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M11 1 3 9l8 8"
+              stroke="#1D2026"
+              stroke-width="3"
+              fill="none"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <button class="lightbox__button next">
+          <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="m2 1 8 8-8 8"
+              stroke="#1D2026"
+              stroke-width="3"
+              fill="none"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <img src="./assets/images/image-product-1.jpg" alt="" />
+        <button class="lightbox__close">
+          <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
+              fill="#69707D"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="lightbox__links">
+        <button class="lightbox-link thumbnail-01"></button>
+        <button class="lightbox-link thumbnail-02"></button>
+        <button class="lightbox-link thumbnail-03"></button>
+        <button class="lightbox-link thumbnail-04"></button>
+      </div>
+    </div>
+
     <nav class="navbar">
       <button
-        class="navbar__hamburger hamburger hamburger--spring"
+        class="navbar__hamburger hamburger hamburger--spring burger"
         type="button"
         aria-label="Menu"
         role="button"
@@ -40,14 +83,6 @@
         </span>
       </button>
       <div class="navbar__logo"></div>
-      <button class="navbar__cart-icon" data-cart>
-        <span data-icon-cart="empty"></span>
-      </button>
-      <div class="navbar__shopping-list" data-display="isnotactive">
-        <p class="navbar__shopping-list__header">Cart</p>
-        <div class="navbar__shopping-list__content" data-content="empty"></div>
-      </div>
-      <div class="navbar__avatar"></div>
       <ul class="navbar__links" data-nav-mobile="isnotactive">
         <li><a href="#">Collections</a></li>
         <li><a href="#">Men</a></li>
@@ -55,69 +90,87 @@
         <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
+      <div class="navbar__shopping-list" data-display="isnotactive">
+        <p class="navbar__shopping-list__header">Cart</p>
+        <div class="navbar__shopping-list__content" data-content="empty"></div>
+      </div>
+      <div class="navbar__end-container">
+        <div class="navbar__avatar"></div>
+        <button class="navbar__cart-icon" data-cart>
+          <span data-icon-cart="empty"></span>
+        </button>
+      </div>
     </nav>
     <main class="product">
-      <div
-        class="product__caroussel caroussel"
-        aria-label="item photos"
-        data-caroussel
-      >
-        <button
-          class="caroussel__button prev"
-          aria-label="prev photo"
-          data-caroussel_btn="prev"
+      <div class="caroussel-container">
+        <div
+          class="product__caroussel caroussel"
+          aria-label="item photos"
+          data-caroussel
         >
-          <img
-            src="./assets/images/icon-previous.svg"
-            alt="arrow previous image"
-          />
-        </button>
-        <button
-          class="caroussel__button next"
-          aria-label="next photo"
-          data-caroussel_btn="next"
-        >
-          <img src="./assets/images/icon-next.svg" alt="arrow next image" />
-        </button>
-        <div class="slides-container" data-slides>
-          <div class="caroussel__slide slide--01" data-active>
+          <button
+            class="caroussel__button prev"
+            aria-label="prev photo"
+            data-caroussel_btn="prev"
+          >
             <img
-              src="./assets/images/image-product-1.jpg"
-              alt="first photo of item"
+              src="./assets/images/icon-previous.svg"
+              alt="arrow previous image"
             />
+          </button>
+          <button
+            class="caroussel__button next"
+            aria-label="next photo"
+            data-caroussel_btn="next"
+          >
+            <img src="./assets/images/icon-next.svg" alt="arrow next image" />
+          </button>
+          <div class="slides-container" data-slides>
+            <div class="caroussel__slide slide--01" data-active>
+              <img
+                src="./assets/images/image-product-1.jpg"
+                alt="first photo of item"
+              />
+            </div>
+            <div class="caroussel__slide slide--02">
+              <img
+                src="./assets/images/image-product-2.jpg"
+                alt="second photo of item"
+              />
+            </div>
+            <div class="caroussel__slide slide--03">
+              <img
+                src="./assets/images/image-product-3.jpg"
+                alt="third photo of item"
+              />
+            </div>
+            <div class="caroussel__slide slide--04">
+              <img
+                src="./assets/images/image-product-4.jpg"
+                alt="fourth photo of item"
+              />
+            </div>
           </div>
-          <div class="caroussel__slide slide--02">
-            <img
-              src="./assets/images/image-product-2.jpg"
-              alt="second photo of item"
-            />
-          </div>
-          <div class="caroussel__slide slide--03">
-            <img
-              src="./assets/images/image-product-3.jpg"
-              alt="third photo of item"
-            />
-          </div>
-          <div class="caroussel__slide slide--04">
-            <img
-              src="./assets/images/image-product-4.jpg"
-              alt="fourth photo of item"
-            />
+          <div class="caroussel__circle-container">
+            <div class="outter-circle">
+              <div class="inner-circle" data-active></div>
+            </div>
+            <div class="outter-circle">
+              <div class="inner-circle"></div>
+            </div>
+            <div class="outter-circle">
+              <div class="inner-circle"></div>
+            </div>
+            <div class="outter-circle">
+              <div class="inner-circle"></div>
+            </div>
           </div>
         </div>
-        <div class="caroussel__circle-container">
-          <div class="outter-circle">
-            <div class="inner-circle" data-active></div>
-          </div>
-          <div class="outter-circle">
-            <div class="inner-circle"></div>
-          </div>
-          <div class="outter-circle">
-            <div class="inner-circle"></div>
-          </div>
-          <div class="outter-circle">
-            <div class="inner-circle"></div>
-          </div>
+        <div class="lightbox__links">
+          <button class="lightbox-link thumbnail-01"></button>
+          <button class="lightbox-link thumbnail-02"></button>
+          <button class="lightbox-link thumbnail-03"></button>
+          <button class="lightbox-link thumbnail-04"></button>
         </div>
       </div>
       <div class="side-container">

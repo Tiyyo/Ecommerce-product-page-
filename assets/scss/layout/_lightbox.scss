@@ -1,0 +1,52 @@
+.lightbox  {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+    min-height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: $black-75-opacity;
+    z-index: 300;
+
+
+    &__picture-container {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        height: 60vh;
+        width: 40vw;
+
+        & > img  {
+            width: 100%;
+            object-fit: fill;
+        }
+    }
+    &__button  {
+        position: absolute;
+        z-index: 350;
+        height: 150px;
+        width: 150px;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 50%;
+        height: 100%;
+
+        & > i {
+            height: 75px;
+        }
+    }
+    .prev {
+        left: 70px;
+        svg {
+          height: 18;
+        }
+    }
+    .next {
+        right: -35px;
+    }
+}

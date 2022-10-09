@@ -1,22 +1,41 @@
 .navbar  {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     height: 8vh;
     background-color: $white;
     padding: 5px 20px 0px 20px;
-    position: relative;
+    margin: 0 auto;
+    
+
+    @include respond-to ('medium'){
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        width: 75vw;
+        margin-bottom: 25px;
+        height: 12vh;
+        justify-content: space-between;
+    }
 
     &__hamburger  {
       position: absolute;
     }
   
     &__logo  {
+        display: inline-block;
         background: url('../images/logo.svg') center/contain no-repeat;
-        height: 20px;
-        flex-grow: 1;
-        text-align: left;
-        margin-left: 25px;
+        height: 30%;
+        flex-grow: 2;
+        margin-left: 20px;
+
+
+        @include respond-to ('medium'){
+            width: 20%;
+            height: 20%;
+            margin: 0;
+            margin-right: 25px;
+            flex-grow: 0;
+        }
     }
 
     &__cart-icon  {
@@ -25,9 +44,12 @@
         width: 18px;
         height: 18px;
         margin: 0 7px;
-
-        &:hover {
-            fill: $orange;
+        order: 3;
+        flex-grow: 0;
+        @include respond-to ('medium'){
+            height: 21px;
+            width: 21px;
+            margin-right: 25px;
         }
 
         & > span[data-icon-cart="notempty"]  {
@@ -39,6 +61,14 @@
             background-color: $orange;
             color: $white;
             font-size: 1rem;
+
+            @include respond-to ('medium') {
+                top: -12px;
+                height: 18px;
+                width: 26px;
+                border-radius: 12px;
+                font-size: 1.5rem;
+            }
         }
 
         & > span[data-icon-cart="empty"]  {
@@ -55,7 +85,7 @@
 
     &__shopping-list[data-display="isnotactive"]  {
         display: none;
-        @include cart;     
+  
     }  
 
     &__avatar  {
@@ -66,6 +96,13 @@
         outline-style: solid;
         outline-offset: 1px;
         outline-color: transparent;
+        order: 4;
+        flex-grow: 0;
+
+        @include respond-to ('medium'){
+            height: calc($iconSize * 2);
+            width: calc($iconSize * 2);
+        }
 
         &:hover  {
             outline-color: $orange;
@@ -77,6 +114,22 @@
         transition: left 0.35s ease-in-out;
         @include mobileNav;
 
+        @include respond-to ('medium') {
+            margin: 0;
+            padding: 0;
+            height: 7vh;
+            max-width: 355px;
+            position: static;
+            flex-direction: row;
+            align-items: center;
+            column-gap: 15px;
+            font-size: 1.7rem;
+            font-weight: $regular;
+            order: 1;
+            flex-grow: 20;
+        }
+
+
     }
 
     &__links[data-nav-mobile="isactive"]  {
@@ -86,6 +139,11 @@
         left: 0;     
     }
 
+    &__end-container  {
+        order: 3;
+        display: flex;
+        align-items: center;
+    }
 
 
 } 
