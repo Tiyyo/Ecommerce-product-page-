@@ -16,37 +16,70 @@
 
     &__picture-container {
         position: relative;
-        border-radius: 24px;
-        overflow: hidden;
-        height: 60vh;
-        width: 40vw;
+        overflow: visible;
+        height: 30vw;
+        width: 30vw;
 
         & > img  {
             width: 100%;
-            object-fit: fill;
+            object-fit: cover;
+            border-radius: 24px;
         }
     }
-    &__button  {
+    &__close {
         position: absolute;
-        z-index: 350;
-        height: 150px;
-        width: 150px;
-        top: 50%;
-        transform: translateY(-50%);
-        border-radius: 50%;
-        height: 100%;
+        top : -30px;
+        right: 10px;
+        background-size: 50px;
 
-        & > i {
-            height: 75px;
+        .svg-cross__path  {
+            fill: #ffffff;
+        }
+        &:hover {
+            .svg-cross__path  {
+                fill: $orangeHex;
+            }
+        }
+       
+        
+    }
+    &__button  {
+
+        .svg-chevron__path {
+          stroke-width: 4;
+
+        }
+
+        &:hover  {
+            .svg-chevron__path  {
+                stroke: $orangeHex;
+            }
         }
     }
     .prev {
-        left: 70px;
-        svg {
-          height: 18;
-        }
+        position: absolute;
+        z-index: 1000;
+        left: -25px;
+        height: 50px;
+        width: 50px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: white;
+        border-radius: 50%;
     }
     .next {
-        right: -35px;
+        position: absolute;
+        right: -25px;
+        z-index: 1000;
+        height: 50px;
+        width: 50px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: white;
+        border-radius: 50%;
     }
+}
+.caroussel__slide {
+    border-radius: 24px;
+    overflow: hidden;
 }

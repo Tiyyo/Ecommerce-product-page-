@@ -9,6 +9,8 @@ const cartContent = document.querySelector("[data-content");
 const form = document.getElementsByClassName("product__cart")[0];
 const main = document.querySelector("main");
 const iconCartValue = displayCartBtn.children[0];
+const lightboxLinks = document.querySelectorAll(".lightbox-link");
+const slidesContainer = document.querySelector(".slides-container");
 let stockCartValue;
 let itemCount = 0;
 let products = [
@@ -20,7 +22,6 @@ let products = [
 ];
 let deleteBtn;
 
-console.log(iconCartValue.dataset);
 () => {
   displayItemCart();
 };
@@ -137,6 +138,31 @@ function caroussel(item) {
   delete activeDot.dataset.active;
 }
 
+function displayThumbnail(string) {
+  activeSlide = document.querySelector("[data-active");
+
+  switch (string) {
+    case "lightbox-link thumbnail-01":
+      delete activeSlide.dataset.active;
+      slidesContainer.children[0].dataset.active = true;
+      break;
+    case "lightbox-link thumbnail-02":
+      delete activeSlide.dataset.active;
+      slidesContainer.children[1].dataset.active = true;
+      break;
+    case "lightbox-link thumbnail-03":
+      delete activeSlide.dataset.active;
+      slidesContainer.children[2].dataset.active = true;
+      break;
+    case "lightbox-link thumbnail-04":
+      delete activeSlide.dataset.active;
+      slidesContainer.children[3].dataset.active = true;
+      break;
+    default:
+      null;
+  }
+}
+
 // trigger caroussel
 carousselBtn.forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -191,4 +217,12 @@ main.addEventListener("click", () => {
     main.classList.remove("active");
     hamburger.classList.remove("is-active");
   }
+});
+
+// display the right picture on mouseover of his thumbnail
+
+lightboxLinks.forEach((link) => {
+  link.addEventListener("mouseover", (e) => {
+    displayThumbnail(e.target.className);
+  });
 });
