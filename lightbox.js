@@ -1,16 +1,11 @@
-const activeLightboxBtn = document.querySelectorAll(".lightbox-link");
+const activeLightboxBtn = document.querySelectorAll(".link-to__lightbox");
 
-// console.log(activeLightboxBtn);
-
-activeLightboxBtn.forEach((btn) => {
-  // display lightbox
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
-    let lightbox = document.createElement("div");
-    document.body.appendChild(lightbox);
-    lightbox.classList.add("lightbox");
-    lightbox.innerHTML = `<div class="lightbox__picture-container">
-    <button class="lightbox__button prev">
+function createLightbox() {
+  let lightbox = document.createElement("div");
+  document.body.appendChild(lightbox);
+  lightbox.classList.add("lightbox");
+  lightbox.innerHTML = `<div class="lightbox__picture-container" data-caroussel>
+    <button class="lightbox__button prev" data-caroussel_btn="prev">
       <svg
         class="svg_chevron"
         width="18"
@@ -28,7 +23,7 @@ activeLightboxBtn.forEach((btn) => {
       </svg>
     </button>
 
-    <button class="lightbox__button next">
+    <button class="lightbox__button next" data-caroussel_btn="next">
       <svg
         class="svg-chevron"
         width="13"
@@ -46,8 +41,8 @@ activeLightboxBtn.forEach((btn) => {
       </svg>
     </button>
 
-    <div class="slides-container" data-slides>
-      <div class="caroussel__slide slide--01" data-active>
+    <div class="slides-container lightbox__slides" data-slides>
+      <div class="caroussel__slide slide--01" data-lightbox-active>
         <img
           src="./assets/images/image-product-1.jpg"
           alt="first photo of item"
@@ -91,12 +86,81 @@ activeLightboxBtn.forEach((btn) => {
     <button class="lightbox-link thumbnail-03"></button>
     <button class="lightbox-link thumbnail-04"></button>
   </div>`;
+  // delete lightbox
+  const closeLightbox = document.querySelector(".lightbox__close");
+  closeLightbox.addEventListener("click", () => {
+    lightbox.remove();
+  });
+}
 
-    // close lightbox
-    const closeLightbox = document.querySelector(".lightbox__close");
-    closeLightbox.addEventListener("click", () => {
-      lightbox.remove();
+function carousselLightbox(button) {
+  const offset = button.dataset.caroussel_btn === "next" ? +1 : -1;
+  const slidesInLightbox = document.querySelector(".lightbox__slides");
+  const activeLightboxSlide = slidesInLightbox.querySelector(
+    "[data-lightbox-active]"
+  );
+  let newIndex =
+    [...slidesInLightbox.children].indexOf(activeLightboxSlide) + offset;
+  if (newIndex < 0) {
+    newIndex = slidesInLightbox.children.length - 1;
+  }
+  if (newIndex >= slidesInLightbox.children.length) newIndex = 0;
+
+  slidesInLightbox.children[newIndex].dataset.lightboxActive = true;
+  delete activeLightboxSlide.dataset.lightboxActive;
+}
+
+function displayThumbnail(string) {
+  activeSlide = document.querySelector("[data-lightbox-active");
+  const slidesLightbox = document.querySelector(".lightbox__slides");
+
+  switch (string) {
+    case "lightbox-link thumbnail-01":
+      delete activeSlide.dataset.lightboxActive;
+      slidesLightbox.children[0].dataset.lightboxActive = true;
+      break;
+    case "lightbox-link thumbnail-02":
+      delete activeSlide.dataset.lightboxActive;
+      slidesLightbox.children[1].dataset.lightboxActive = true;
+      break;
+    case "lightbox-link thumbnail-03":
+      delete activeSlide.dataset.lightboxActive;
+      slidesLightbox.children[2].dataset.lightboxActive = true;
+      break;
+    case "lightbox-link thumbnail-04":
+      delete activeSlide.dataset.lightboxActive;
+      slidesLightbox.children[3].dataset.lightboxActive = true;
+      break;
+    default:
+      null;
+  }
+}
+
+// console.log(activeLightboxBtn);
+
+activeLightboxBtn.forEach((btn) => {
+  // display lightbox
+
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    createLightbox();
+
+    //make caroussel work in lightbox
+
+    const lightboxBtn = document.querySelectorAll(".lightbox__button");
+    lightboxBtn.forEach((prevNext) => {
+      prevNext.addEventListener("click", () => {
+        carousselLightbox(prevNext);
+      });
     });
-    console.log(closeLightbox);
+
+    const lightboxLinks = document.querySelectorAll(".lightbox-link");
+    lightboxLinks.forEach((link) => {
+      link.addEventListener("mouseover", (e) => {
+        console.log(e.target.className);
+
+        displayThumbnail(e.target.className);
+      });
+    });
   });
 });

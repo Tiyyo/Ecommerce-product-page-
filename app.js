@@ -1,4 +1,4 @@
-const carousselBtn = document.querySelectorAll("[data-caroussel_btn]");
+const carousselBtn = document.querySelectorAll(".caroussel__button");
 const numberItemToAdd = document.querySelector("input[type=number]");
 const cartBtn = document.querySelectorAll("[data-input]");
 const hamburger = document.getElementsByClassName("hamburger")[0];
@@ -9,7 +9,7 @@ const cartContent = document.querySelector("[data-content");
 const form = document.getElementsByClassName("product__cart")[0];
 const main = document.querySelector("main");
 const iconCartValue = displayCartBtn.children[0];
-const lightboxLinks = document.querySelectorAll(".lightbox-link");
+const lightboxLinks = document.querySelectorAll(".link-to__lightbox");
 const slidesContainer = document.querySelector(".slides-container");
 let stockCartValue;
 let itemCount = 0;
@@ -22,6 +22,7 @@ let products = [
 ];
 let deleteBtn;
 
+console.log(slidesContainer.children[0].dataset.active);
 () => {
   displayItemCart();
 };
@@ -116,6 +117,7 @@ function caroussel(item) {
   const slides = item
     .closest("[data-caroussel]")
     .querySelector("[data-slides]");
+  console.log(slides);
 
   const activeSlide = slides.querySelector("[data-active]");
   let newIndex = [...slides.children].indexOf(activeSlide) + offset;
@@ -139,22 +141,24 @@ function caroussel(item) {
 }
 
 function displayThumbnail(string) {
-  activeSlide = document.querySelector("[data-active");
+  console.log(slidesContainer);
+  activeSlide = document.querySelector("[data-active]");
+  alert("test");
 
   switch (string) {
-    case "lightbox-link thumbnail-01":
+    case "link-to__lightbox thumbnail-01":
       delete activeSlide.dataset.active;
       slidesContainer.children[0].dataset.active = true;
       break;
-    case "lightbox-link thumbnail-02":
+    case "link-to__lightbox thumbnail-02":
       delete activeSlide.dataset.active;
       slidesContainer.children[1].dataset.active = true;
       break;
-    case "lightbox-link thumbnail-03":
+    case "link-to__lightbox thumbnail-03":
       delete activeSlide.dataset.active;
       slidesContainer.children[2].dataset.active = true;
       break;
-    case "lightbox-link thumbnail-04":
+    case "link-to__lightbox thumbnail-04":
       delete activeSlide.dataset.active;
       slidesContainer.children[3].dataset.active = true;
       break;
@@ -223,6 +227,26 @@ main.addEventListener("click", () => {
 
 lightboxLinks.forEach((link) => {
   link.addEventListener("mouseover", (e) => {
-    displayThumbnail(e.target.className);
+    activeSlide = document.querySelector("[data-active]");
+    switch (e.target.className) {
+      case "link-to__lightbox thumbnail-01":
+        delete activeSlide.dataset.active;
+        slidesContainer.children[0].dataset.active = true;
+        break;
+      case "link-to__lightbox thumbnail-02":
+        delete activeSlide.dataset.active;
+        slidesContainer.children[1].dataset.active = true;
+        break;
+      case "link-to__lightbox thumbnail-03":
+        delete activeSlide.dataset.active;
+        slidesContainer.children[2].dataset.active = true;
+        break;
+      case "link-to__lightbox thumbnail-04":
+        delete activeSlide.dataset.active;
+        slidesContainer.children[3].dataset.active = true;
+        break;
+      default:
+        null;
+    }
   });
 });

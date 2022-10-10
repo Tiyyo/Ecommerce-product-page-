@@ -114,6 +114,31 @@
         transition: left 0.35s ease-in-out;
         @include mobileNav;
 
+        & > li {
+            position: relative;
+            transform: translateY(0);
+            transition: transform 0.350s ease-in;
+                &::after {
+                    content:"";
+                    position: absolute;
+                    top: 6vh;
+                    left: 0;
+                    height: 5px;
+                    width: 0%;
+                    background-color: $orange;
+                    transform: translateY(0);
+                    transition: width 0.350s ease-in-out,
+                                transform 0.350s ease-in;
+                }
+            &:hover {
+                transform: translateY(-5px);
+                &:after {
+                    width: 100%;
+                    transform: translateY(-5px);
+                }
+            }
+        }
+
         @include respond-to ('medium') {
             margin: 0;
             padding: 0;

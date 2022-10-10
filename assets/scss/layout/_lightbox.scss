@@ -80,6 +80,8 @@
     }
 }
 .caroussel__slide {
+    @include respond-to ('extra-large'){
     border-radius: 24px;
     overflow: hidden;
+    }
 }
